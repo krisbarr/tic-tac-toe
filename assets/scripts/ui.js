@@ -15,7 +15,11 @@ const onError = function () {
 const onSignInSuccess = function (response) {
   store.user = response.user
   $('#message').text(response.user.email + " signed in!")
-  $('#sign-in').trigger('reset')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#new-game').show()
 }
 const onChangePasswordSuccess = function () {
   $('#message').text("Your password has been changed")
@@ -23,7 +27,10 @@ const onChangePasswordSuccess = function () {
 }
 const onSignOutSuccess = function () {
   $('#message').text("You're signed out!")
-  $('#sign-out').trigger('reset')
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
 }
 
 
