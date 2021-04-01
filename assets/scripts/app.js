@@ -9,5 +9,7 @@ const events = require('./events.js')
 $(() => {
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
+  $('#change-password').on('submit', events.onChangePassword)
+
 
 })

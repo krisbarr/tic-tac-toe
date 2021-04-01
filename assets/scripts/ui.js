@@ -1,4 +1,5 @@
 'use strict'
+const store = require('./store')
 
 const onSignUpSuccess = function () {
   $('#message').text("You're signed up!")
@@ -7,14 +8,20 @@ const onSignUpSuccess = function () {
 const onError = function () {
   $('#message').text("That didn't work. Please try again")
 }
-const onSignInSuccess = function () {
-  $('#message').text("You're signed in!")
-  $('#sign-up').trigger('reset')
+const onSignInSuccess = function (response) {
+  store.user = response.user
+  $('#message').text(response.user.email + " signed in!")
+  $('#sign-in').trigger('reset')
+}
+const onChangePasswordSuccess = function () {
+  $('#message').text("Your password has been changed")
+  $('#change-password').trigger('reset')
 }
 
 
 module.exports = {
   onSignUpSuccess,
   onError,
-  onSignInSuccess
+  onSignInSuccess,
+  onChangePasswordSuccess
 }
