@@ -7,9 +7,14 @@ const onSignUpSuccess = function () {
 const onError = function () {
   $('#message').text("That didn't work. Please try again")
 }
+const onSignInSuccess = function () {
+  $('#message').text("You're signed in!")
+  $('#sign-up').trigger('reset')
+}
 
 
 module.exports = {
-  onSignUpSuccess
-  onError
+  onSignUpSuccess,
+  onError,
+  onSignInSuccess
 }
