@@ -7,6 +7,10 @@ const onSignUpSuccess = function () {
 }
 const onError = function () {
   $('#message').text("That didn't work. Please try again")
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
+  $('#change-password').trigger('reset')
+  $('#sign-out').trigger('reset')
 }
 const onSignInSuccess = function (response) {
   store.user = response.user
@@ -17,11 +21,16 @@ const onChangePasswordSuccess = function () {
   $('#message').text("Your password has been changed")
   $('#change-password').trigger('reset')
 }
+const onSignOutSuccess = function () {
+  $('#message').text("You're signed out!")
+  $('#sign-out').trigger('reset')
+}
 
 
 module.exports = {
   onSignUpSuccess,
   onError,
   onSignInSuccess,
-  onChangePasswordSuccess
+  onChangePasswordSuccess,
+  onSignOutSuccess
 }

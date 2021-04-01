@@ -28,9 +28,17 @@ const onChangePassword = function (event) {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onError)
 }
+const onSignOut = function () {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onError)
+}
 
 module.exports = {
   onSignUp,
   onSignIn,
-  onChangePassword
+  onChangePassword,
+  onSignOut
+
 }
