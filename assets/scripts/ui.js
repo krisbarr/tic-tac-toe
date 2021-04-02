@@ -32,6 +32,11 @@ const onSignOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
 }
+const onNewGameSuccess = function () {
+  $('#message').text("Let's Play!")
+  $('#game-board').show()
+  $('#change-password').hide()
+}
 
 
 module.exports = {
@@ -39,5 +44,6 @@ module.exports = {
   onError,
   onSignInSuccess,
   onChangePasswordSuccess,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onNewGameSuccess
 }
