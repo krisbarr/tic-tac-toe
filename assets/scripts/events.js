@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const formFields = require('../../lib/get-form-fields')
+//const gameLogic = require('./game-logic')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -40,12 +41,23 @@ const onNewGame = function () {
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)
 }
+const onTurn = function () {
+  const cell= event.target.id
+  $('#' + cell).text('X')
+  }
+
+console.log($('div').data("cell-index"))
+
+
+
+
 
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onTurn
 
 }
