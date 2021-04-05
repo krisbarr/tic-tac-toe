@@ -2,7 +2,10 @@
 //html divs are turned into an array
 
 
-/*let game = ["", "", "", "", "", "", "", "", ""]
+let game = ["", "", "", "", "", "", "", "", ""]
+
+
+
 
 const checkGame = function(game) {
   for(let i = 0; i < game.length; i++) {

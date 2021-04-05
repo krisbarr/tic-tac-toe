@@ -1,1 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container {
+  height: 100vh;
+}
+.board {
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
+
+}
+
+.box {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  &:nth-child(3n) {
+    border-right: 0;
+  }
+
+  &:nth-last-child(-1n + 3){
+    border-bottom: 0;
+  }
+  min-height: calc(100%/3);
+}

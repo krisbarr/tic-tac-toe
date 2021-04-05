@@ -41,10 +41,38 @@ const onNewGame = function () {
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)
 }
-const onTurn = function () {
+const onTurn = function (event) {
   const cell= event.target.id
-  $('#' + cell).text('X')
+  if ($(event.target).text() === '') {
+    $(event.target).text('X')
+    } else {
+    $('#message').text("You've already clicked here!")
+    }
   }
+
+
+
+
+//$('#' + cell).html('x')
+  /*var cells = document.getElementsByClassName('col-4');
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].onclick = function(target) {
+      [].forEach.call(cells, function(cell) {
+
+      });
+      this.innerHTML = "";*/
+
+
+
+
+//$('.col-4').html('X')
+
+  //const turn = document.getElementById('message')
+
+  /*cell.removeEventListener('click', this.handleClick, true);
+  $('#message').text("YES YOU ARE AMAZING")*/
+
+
 
 console.log($('div').data("cell-index"))
 

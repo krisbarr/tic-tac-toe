@@ -34,7 +34,7 @@ const onSignOutSuccess = function () {
 }
 const onNewGameSuccess = function () {
   $('#message').text("Let's Play!")
-  $('#game-board').show()
+  $('.board').show()
   $('#change-password').hide()
 }
 
