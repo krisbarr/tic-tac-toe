@@ -45,10 +45,30 @@ const newGame = function () {
     }
   })
 }
+const onTurnSuccess = function(index, value){
+    return $.ajax({
+      method: 'PATCH',
+      url: config.apiUrl + '/games/' + store.game._id,
+      headers: {
+        Authorization: 'Bearer ' + store.user.token
+      },
+      data: {
+        game: {
+          cell: {
+            index: index,
+            value: value
+          },
+          over: false
+        }
+      }
+    })
+  }
+
 module.exports = {
   create,
   signIn,
   changePassword,
   signOut,
-  newGame
+  newGame,
+  onTurnSuccess
 }

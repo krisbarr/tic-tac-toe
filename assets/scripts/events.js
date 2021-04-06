@@ -41,14 +41,26 @@ const onNewGame = function () {
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)
 }
-const onTurn = function (event) {
-  const cell= event.target.id
-  if ($(event.target).text() === '') {
-    $(event.target).text('X')
-    } else {
+
+let currentMove = 'X'
+
+const onTurn = function () {
+  const index = event.target.id
+  const box = $(event.target)
+  const value = $(event.target).text()
+
+  if (box.text() === '') {
+    box.text(currentMove)
+    currentMove = currentMove === 'X' ? 'O' : 'X'
+  } else {
     $('#message').text("You've already clicked here!")
-    }
   }
+
+  api.onTurnSuccess(index, value)
+
+}
+
+
 
 
 

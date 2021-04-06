@@ -32,7 +32,8 @@ const onSignOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
 }
-const onNewGameSuccess = function () {
+const onNewGameSuccess = function (response) {
+  store.game = response.game
   $('#message').text("Let's Play!")
   $('.board').show()
   $('#change-password').hide()
