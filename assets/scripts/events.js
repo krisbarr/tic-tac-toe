@@ -44,7 +44,7 @@ const onNewGame = function () {
 
 let currentMove = 'X'
 
-const onTurn = function (git ) {
+const onTurn = function () {
   const index = event.target.id
   const box = $(event.target)
   const value = $(event.target).text()
