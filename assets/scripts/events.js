@@ -37,7 +37,6 @@ const onSignOut = function () {
     .catch(ui.onError)
 }
 const onNewGame = function () {
-  event.preventDefault()
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)
@@ -71,7 +70,6 @@ const onTurn = function () {
        (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') ||
        (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '')){
         $('#message').text("You won")
-        //check for tie
       } else if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
                 && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
                   $('#message').text("It's a tie")

@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./store')
+const events = require('./events.js')
 
 const onSignUpSuccess = function () {
   $('#message').text("You're signed up!")
@@ -31,18 +32,18 @@ const onSignOutSuccess = function () {
   $('#change-password').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('.board').hide()
+  $('#new-game').hide()
 }
 const onNewGameSuccess = function (response) {
   store.game = response.game
   $('#message').text("Let's Play!")
   $('.board').show()
   $('#change-password').hide()
-}
-const onWin = function (response) {
-  //message that player won
-  //stop cells from being clicked
+  $('.box').empty()
 
 }
+
 
 
 module.exports = {
@@ -51,5 +52,5 @@ module.exports = {
   onSignInSuccess,
   onChangePasswordSuccess,
   onSignOutSuccess,
-  onNewGameSuccess
+  onNewGameSuccess,
 }
