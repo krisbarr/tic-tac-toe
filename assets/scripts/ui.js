@@ -38,6 +38,11 @@ const onNewGameSuccess = function (response) {
   $('.board').show()
   $('#change-password').hide()
 }
+const onWin = function (response) {
+  //message that player won
+  //stop cells from being clicked
+
+}
 
 
 module.exports = {
