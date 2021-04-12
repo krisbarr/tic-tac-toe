@@ -1,17 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
-
 .container {
   height: 100vh;
+
 }
 .board {
   max-height: calc(100vh - 75px);
   max-width: calc(100vh - 75px);
+  background: url('public/spooky.jpg');
+  background-position: center;
+  background-size: cover;
+
+
 
 }
 
 .box {
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
   &:nth-child(3n) {
     border-right: 0;
   }
@@ -20,4 +25,14 @@
     border-bottom: 0;
   }
   min-height: calc(100%/3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  background: url('public/dirt.jpg');
+  background-position: center;
+  background-size: cover;
+
+
 }

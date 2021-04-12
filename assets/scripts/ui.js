@@ -21,6 +21,7 @@ const onSignInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#new-game').show()
+  $('#sign-in').trigger('reset')
 }
 const onChangePasswordSuccess = function () {
   $('#message').text("Your password has been changed")
@@ -35,12 +36,19 @@ const onSignOutSuccess = function () {
   $('.board').hide()
   $('#new-game').hide()
 }
+
+
+/*const onWin = function () {
+    $('.box').unbind('click')
+}*/
+
 const onNewGameSuccess = function (response) {
   store.game = response.game
   $('#message').text("Let's Play!")
   $('.board').show()
   $('#change-password').hide()
   $('.box').empty()
+  $('.box').bind('click', events.onTurn)
 
 }
 
@@ -53,4 +61,5 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onNewGameSuccess,
+  //onWin
 }

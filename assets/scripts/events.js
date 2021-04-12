@@ -44,42 +44,45 @@ const onNewGame = function () {
 
 let currentMove = 'X'
 
+let gameOver = false
+
 const onTurn = function () {
   const index = $(event.target).data('cell-index')
   const box = $(event.target)
-  if (box.text() === '') {
+  if (box.text() === ''){
+    box.css('background', 'transparent')
     box.text(currentMove)
     store.game.cells[index] = currentMove
     currentMove = currentMove === 'X' ? 'O' : 'X'
-  } else {
+  }else{
     $('#message').text("You've already clicked here!")
   }
   const value = $(event.target).text()
     api.onTurnSuccess(index, value)
-
-   let winCheck
-        //winning conditions for horizonal rows
-    if ((store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') ||
-       (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') ||
-       (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') ||
-       //winning conditions for vertical columns
-       (store.game.cells[0] === store.game.cells[3] && store.game.cells[0] === store.game.cells[6] && store.game.cells[0] !== '') ||
-       (store.game.cells[1] === store.game.cells[4] && store.game.cells[1] === store.game.cells[7] && store.game.cells[1] !== '') ||
-       (store.game.cells[2] === store.game.cells[5] && store.game.cells[2] === store.game.cells[8] && store.game.cells[2] !== '') ||
-       //winning conditions for diagonals
-       (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') ||
-       (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '')){
-        $('#message').text("You won")
+      console.log(store.game.over)
+    //winning conditions for horizonal rows
+  if ((store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') ||
+     (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') ||
+     (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') ||
+     //winning conditions for vertical columns
+     (store.game.cells[0] === store.game.cells[3] && store.game.cells[0] === store.game.cells[6] && store.game.cells[0] !== '') ||
+     (store.game.cells[1] === store.game.cells[4] && store.game.cells[1] === store.game.cells[7] && store.game.cells[1] !== '') ||
+     (store.game.cells[2] === store.game.cells[5] && store.game.cells[2] === store.game.cells[8] && store.game.cells[2] !== '') ||
+     //winning conditions for diagonals
+     (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') ||
+     (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '')){
+      $('#message').text("You won")
       } else if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
                 && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
                   $('#message').text("It's a tie")
+                } else {
+                  gameOver = false
                 }
 
+              }
 
 
 
-
-}
 
 
 
