@@ -38,20 +38,27 @@ const onSignOutSuccess = function () {
 }
 
 
-/*const onWin = function () {
-    $('.box').unbind('click')
-}*/
-
 const onNewGameSuccess = function (response) {
   store.game = response.game
   $('#message').text("Let's Play!")
   $('.board').show()
   $('#change-password').hide()
   $('.box').empty()
-  $('.box').bind('click', events.onTurn)
-
 }
 
+const onDoubleClick = function () {
+  $('#message').text("You've already clicked here!")
+}
+
+const onWin = function (response) {
+  if (response.game.over){
+  $('#message').text("You Won")
+}
+}
+
+const onTie = function () {
+  $('#message').text("It's a tie")
+}
 
 
 module.exports = {
@@ -61,5 +68,7 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onNewGameSuccess,
-  //onWin
+  onDoubleClick,
+  onWin,
+  onTie
 }

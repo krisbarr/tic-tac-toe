@@ -1,16 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Oswald&display=swap');
+
+body{
+  background: url('public/noir-graves.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Nosifer', cursive;
+}
+h1 {
+  font-family: 'Creepster', sans-serif;
+  font-size: 72px;
+  color: white;
+  text-align: center;
+}
+span {
+  font-family: 'Nosifer', cursive;
+  font-size: 132px;
+  color: red;
+}
+button{
+  background-color: red;
+  font-family: 'Creepster', cursive;
+  border-radius: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .container {
   height: 100vh;
+  margin-left: 50vw;
 
 }
 .board {
-  max-height: calc(100vh - 75px);
-  max-width: calc(100vh - 75px);
-  background: url('public/spooky.jpg');
+  max-height: calc(65vh - 75px);
+  max-width: calc(65vh - 75px);
+  background: url('public/gray-toe.jpeg');
   background-position: center;
   background-size: cover;
-
-
 
 }
 
@@ -30,9 +58,14 @@
   justify-content: center;
   align-items: center;
   color: red;
-  background: url('public/dirt.jpg');
+  background: url('public/gray-dirt.jpg');
   background-position: center;
   background-size: cover;
 
 
+}
+
+#message {
+  color: white;
+  text-align: center;
 }

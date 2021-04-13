@@ -45,7 +45,7 @@ const newGame = function () {
     }
   })
 }
-const onTurnSuccess = function (index, value) {
+const onTurnSuccess = function (index, value, gameOver) {
     return $.ajax({
       method: 'PATCH',
       url: config.apiUrl + '/games/' + store.game._id,
@@ -58,7 +58,7 @@ const onTurnSuccess = function (index, value) {
             index: index,
             value: value
           },
-          over: false
+          over: gameOver
         }
       }
     })

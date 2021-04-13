@@ -44,9 +44,9 @@ const onNewGame = function () {
 
 let currentMove = 'X'
 
-let gameOver = false
 
 const onTurn = function () {
+  if (checkWin()) return
   const index = $(event.target).data('cell-index')
   const box = $(event.target)
   if (box.text() === ''){
@@ -54,13 +54,18 @@ const onTurn = function () {
     box.text(currentMove)
     store.game.cells[index] = currentMove
     currentMove = currentMove === 'X' ? 'O' : 'X'
-  }else{
-    $('#message').text("You've already clicked here!")
-  }
-  const value = $(event.target).text()
-    api.onTurnSuccess(index, value)
-      console.log(store.game.over)
-    //winning conditions for horizonal rows
+    } else {
+    ui.onDoubleClick()
+    }
+
+    const value = $(event.target).text()
+        api.onTurnSuccess(index, value, checkWin())
+              .then(ui.onWin)
+              .catch(ui.onError)
+        }
+
+
+const checkWin = function () {
   if ((store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') ||
      (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') ||
      (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') ||
@@ -71,50 +76,14 @@ const onTurn = function () {
      //winning conditions for diagonals
      (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') ||
      (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '')){
-      $('#message').text("You won")
+      return true
       } else if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
                 && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
-                  $('#message').text("It's a tie")
+                  ui.onTie()
                 } else {
-                  gameOver = false
-                }
-
-              }
-
-
-
-
-
-
-
-
-
-
-
-//$('#' + cell).html('x')
-  /*var cells = document.getElementsByClassName('col-4');
-  for (var i = 0; i < cells.length; i++) {
-    cells[i].onclick = function(target) {
-      [].forEach.call(cells, function(cell) {
-
-      });
-      this.innerHTML = "";*/
-
-
-
-
-//$('.col-4').html('X')
-
-  //const turn = document.getElementById('message')
-
-  /*cell.removeEventListener('click', this.handleClick, true);
-  $('#message').text("YES YOU ARE AMAZING")*/
-
-
-
-console.log($('div').data("cell-index"))
-
-
+                  return false
+        }
+}
 
 
 
@@ -125,5 +94,6 @@ module.exports = {
   onSignOut,
   onNewGame,
   onTurn,
+  checkWin
 
 }
