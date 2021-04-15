@@ -42,22 +42,18 @@ const onNewGame = function () {
     .catch(ui.onError)
 }
 
-let currentMove = 'X'
-
 
 const onTurn = function () {
-  if (checkWin()) return
+  if (store.game.over) return
   const index = $(event.target).data('cell-index')
   const box = $(event.target)
   if (box.text() === ''){
     box.css('background', 'transparent')
-    box.text(currentMove)
-    store.game.cells[index] = currentMove
-    currentMove = currentMove === 'X' ? 'O' : 'X'
+    box.text(store.currentPlayer)
+    store.game.cells[index] = store.currentPlayer
     } else {
     ui.onDoubleClick()
     }
-
     const value = $(event.target).text()
         api.onTurnSuccess(index, value, checkWin())
               .then(ui.onWin)
@@ -77,13 +73,20 @@ const checkWin = function () {
      (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') ||
      (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '')){
       return true
-      } else if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
-                && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
-                  ui.onTie()
-                } else {
-                  return false
+      }  else {
+          return false
         }
-}
+      }
+
+const onTie = function () {
+  if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
+            && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
+              return true
+              ui.onTie()
+            }
+          }
+
+
 
 
 
@@ -94,6 +97,10 @@ module.exports = {
   onSignOut,
   onNewGame,
   onTurn,
-  checkWin
+  onWin,
+  onTie
+
+
+
 
 }

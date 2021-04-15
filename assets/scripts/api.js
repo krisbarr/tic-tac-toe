@@ -3,6 +3,7 @@
 const config = require('./config')
 const store = require('./store')
 
+
 const create = function(formData) {
   return $.ajax({
     method: 'POST',
@@ -63,6 +64,7 @@ const onTurnSuccess = function (index, value, gameOver) {
       }
     })
   }
+
 
 module.exports = {
   create,
