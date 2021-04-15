@@ -55,13 +55,13 @@ const onTurn = function () {
     ui.onDoubleClick()
     }
     const value = $(event.target).text()
-        api.onTurnSuccess(index, value, checkWin())
+        api.onTurnSuccess(index, value, winCheck())
               .then(ui.onWin)
               .catch(ui.onError)
         }
 
 
-const checkWin = function () {
+const winCheck = function () {
   if ((store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') ||
      (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') ||
      (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') ||
@@ -78,13 +78,7 @@ const checkWin = function () {
         }
       }
 
-const onTie = function () {
-  if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
-            && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
-              return true
-              ui.onTie()
-            }
-          }
+
 
 
 
@@ -97,8 +91,8 @@ module.exports = {
   onSignOut,
   onNewGame,
   onTurn,
-  onWin,
-  onTie
+  winCheck,
+
 
 
 

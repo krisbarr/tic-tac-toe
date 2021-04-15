@@ -2,6 +2,23 @@
 const store = require('./store')
 const events = require('./events.js')
 
+const tieCheck = function () {
+  if (store.game.cells[0] && store.game.cells[1] && store.game.cells[2] && store.game.cells[3] && store.game.cells[4]
+            && store.game.cells[5]&& store.game.cells[6]&& store.game.cells[7] && store.game.cells[8] ) {
+              return true
+            } else {
+              return false
+            }
+          }
+
+const switchPlayer = function () {
+  if (store.currentPlayer === 'X') {
+      store.currentPlayer = 'O'
+      } else {
+      store.currentPlayer = 'X'
+          }
+        }
+
 const onSignUpSuccess = function () {
   $('#message').text("You're signed up!")
   $('#sign-up').trigger('reset')
@@ -53,29 +70,21 @@ const onDoubleClick = function () {
   $('#message').text("You've already clicked here!")
 }
 
-const switchPlayer = function () {
-  if (store.currentPlayer === 'X') {
-    store.currentPlayer = 'O'
-  } else {
-    store.currentPlayer = 'X'
-  }
-}
-
 const onWin = function (response) {
   store.game = response.game
-  console.log(response.game.cells.length)
-  if (response.game.over){
+  if (response.game.over && !tieCheck()){
   $('#message').text(store.currentPlayer + ' is the winner!')
-  } else {
+} else if (tieCheck()){
+    onTie()
+    response.game.over = true
+  }else {
     switchPlayer()
   $('#message').text("It is " + store.currentPlayer + "'s move")
-}
+  }
 }
 
 
 const onTie = function (response) {
-  store.game = response.game
-  response.game.over = true
   $('#message').text("It's a tie")
 }
 
