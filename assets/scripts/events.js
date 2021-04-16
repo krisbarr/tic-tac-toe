@@ -91,10 +91,5 @@ module.exports = {
   onSignOut,
   onNewGame,
   onTurn,
-  winCheck,
-
-
-
-
-
+  winCheck
 }
