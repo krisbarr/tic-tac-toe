@@ -31,7 +31,7 @@ First the user will be presented with the choice to either sign up or sign in.  
   * As a user I want the game board to reset on a new game
   * As a user I want to be able to sign out
 
-  ## Technologies Used
+## Technologies Used
     * jQuery
     * HTML/CSS
     * Bootstrap
