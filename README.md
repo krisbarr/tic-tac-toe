@@ -32,7 +32,7 @@ First the user will be presented with the choice to either sign up or sign in.  
   * As a user I want to be able to sign out
 
 ## Technologies Used
-    * jQuery
-    * HTML/CSS
-    * Bootstrap
-    * Javascript
+  * jQuery
+  * HTML/CSS
+  * Bootstrap
+  * Javascript
