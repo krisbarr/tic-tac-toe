@@ -16,7 +16,7 @@ First the user will be presented with the choice to either sign up or sign in.  
 ![Tic Tac Toe First Move](https://github.com/krisbarr/tic-tac-toe-client/blob/main/public/tictactoe-first-move.jpg)
 ![Tic Tac Toe Switch Player](https://github.com/krisbarr/tic-tac-toe-client/blob/main/public/tictactoe-switchplayer.jpeg)
 ![Tic Tac Toe Declare Winner](https://github.com/krisbarr/tic-tac-toe-client/blob/main/public/tictactoe-declarewinner.jpeg)
-![Tic Tac Toe Mobile Homescreen](https://github.com/krisbarr/tic-tac-toe-client/blob/main/public/tictactoe-switchplayer.jpeg)
+![Tic Tac Toe Mobile Homescreen](https://github.com/krisbarr/tic-tac-toe-client/blob/main/public/tictactoe-mobile-homescreen.jpeg)
 
 ## User Stories
   * As a user I want to sign in/up
