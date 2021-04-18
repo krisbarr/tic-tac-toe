@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic Tac <span>Toe</span></h1>
+      <p id="message"></p>
+      <form id= "sign-up">
+        <input name="credentials[email]" type="text" placeholder="email" required >
+        <input name="credentials[password]" type="password" placeholder="password" required>
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" required>
+        <button>Sign Up</button>
+      </form>
+        <form id= "sign-in">
+          <input name="credentials[email]" type="text" placeholder="email" required>
+          <input name="credentials[password]" type="password" placeholder="password" required>
+          <button>Sign In</button>
+        </form>
+        <form id="change-password">
+          <input name="passwords[old]" type="password" placeholder="old password" required>
+          <input name="passwords[new]" type="password" placeholder="new password" required>
+            <button>Change Password</button>
+          </form>
+          <button id="new-game">New Game</button>
+          <button id="sign-out">Sign Out</button>
+        <section class='container'>
+          <div class='row h-100 board' id='board'>
+            <div id='cell-0'data-cell-index='0'class="col-4 box click-event"></div>
+            <div id='cell-1'data-cell-index='1'class="col-4 box click-event"></div>
+            <div id='cell-2'data-cell-index='2'class="col-4 box click-event"></div>
+
+            <div id='cell-3'data-cell-index='3'class="col-4 box click-event"></div>
+            <div id='cell-4'data-cell-index='4'class="col-4 box click-event"></div>
+            <div id='cell-5'data-cell-index='5'class="col-4 box click-event"></div>
+
+            <div id='cell-6'data-cell-index='6'class="col-4 box click-event"></div>
+            <div id='cell-7'data-cell-index='7'class="col-4 box click-event"></div>
+            <div id='cell-8'data-cell-index='8'class="col-4 box click-event"></div>
+        </div>
+      </section>
+    </body>
+</html>
